@@ -1,0 +1,38 @@
+:root {
+    --gradientStartColor: rgba(59, 88, 70, 1);
+    --gradientMiddleColor: rgba(63, 113, 63, 1);
+    --gradientEndColor: rgba(16, 86, 16, 1);
+    --gradientColor: linear-gradient(180deg, 
+                        var(--gradientStartColor) 0%, 
+                        var(--gradientMiddleColor)50%,
+                        var(--gradientEndColor)100%);
+
+    --defaultBackgorundColor : rgb(59, 88, 70)
+
+}
+
+@font-face {
+    font-family: PixelifySans;
+    src: url("../assets/fonts/PixelifySans-Regular.ttf");
+}
+
+body {
+    background: var(--defaultBackgorundColor);
+    background: var(--gradientColor);
+    font-family: "PixelifySans";
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start {
+    border-radius: 10%;
+}
+
+#start:hover {
+    background-color: black;
+    color: lightgreen;
+}
