@@ -1,27 +1,27 @@
 export const questions = [
-    "Q1",
-    "Q2",
-    "Q3",
-    "Q4",
-    "Q5",
-    "Q6",
-    "Q7",
-    "Q8",
-    "Q9",
-    "Q10"
+    ["Q1","¿Cual es un Fabricante de aviones ?"],
+    ["Q2","¿Cuantos motores lleva el avión con mayor numero de ellos (en servicio)?"],
+    ["Q3","¿Cual es el Avión Comercial mas grande del mundo?"],
+    ["Q4","¿Record de velocidad por un avión en Mach? (1 Mach = 1234,8 km/h"],
+    ["Q5","¿longitud de la pista mas corta del mundo en Metros?"],
+    ["Q6","¿longitud de la pista mas larga del mundo en Kilometros?"],
+    ["Q7","¿Como se llamo el avión que lanzo la bomba atomica sobre Hirosima"],
+    ["Q8","¿Avion de pasajeros mas rápido?"],
+    ["Q9","¿Puede un avion aterrizar solo ?"],
+    ["Q10","¿Cuantos Aeropuertos Hay en Madrid]"]
 ];
 
 export const answers = [
-    ["A1","A2","A3","A4"],    
-    ["B1","B2","B3","B4"],
-    ["C1","C2","C3","C4"],
-    ["D1","D2","D3","D4"],
-    ["E1","E2","E3","E4"],
-    ["F1","F2","F3","F4"],
-    ["G1","G2","G3","G4"],
-    ["H1","H2","H3","H4"],
-    ["I1","I2","I3","I4"],
-    ["J1","J2","J3","J4"],
-    ["K1","K2","K3","K4"],
+    ["Arbol","Casa","Cólumpio","Tobogán"],    
+    ["4","10","6","8"],
+    ["Boeing 747","Antonov An-225","Airbus A380","Bombardier 415"],
+    ["8.2","4.5","6.7","1.2"],
+    ["1000","2500","200","400"],
+    ["2.2","4.2","5.5","3.1"],
+    ["Bockscar","Enola Holmes","Little Boy","Enola Gay"],
+    ["Boeing 777","Túpolev Tu-144","Concorde","Boeing 787 Dreamliner"],
+    ["No","Si"],
+    ["Ninguno","Tres","Dos","Uno"],
 ];
 
+export const correctAnswers = [1,3,2,2,3,2,3,1,1,2]
