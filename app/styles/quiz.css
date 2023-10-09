@@ -4,17 +4,21 @@
     --gradientMiddleColor: rgba(1, 88, 23, 1);
     --gradientEndColor: rgba(0, 96, 16, 1);
     --gradientBackground: radial-gradient(circle,
-                            var(--gradientStartColor) 0%,
-                            var(--gradientStartColor) 81%,
-                            var(--gradientMiddleColor) 93%,
-                            var(--gradientEndColor) 100%);
+            var(--gradientStartColor) 0%,
+            var(--gradientStartColor) 81%,
+            var(--gradientMiddleColor) 93%,
+            var(--gradientEndColor) 100%);
 
     --AirbusSurroundColor: #6399ae;
+    --fmcBorderColor: #3b819d;
 
-    --fontColor1 : lightgreen;
-    --fontColor2 : rgb(59, 230, 59);
+    --fontColor1: lightgreen;
+    --fontColor2: rgb(59, 230, 59);
+    --fontColor3: rgb(0, 37, 9);
 
-    --checkedColor: rgb(0, 63, 16);
+    --normalColor: rgb(0, 37, 9);
+    --hoverColor: rgb(93, 147, 0);
+    --checkedColorBorder: rgb(41, 81, 130);
 }
 
 body {
@@ -27,18 +31,23 @@ body {
     align-items: center;
 }
 
-form#AeroQuiz{
+main#container{
+    border-radius: 25px;
+    background-color: var(--fmcBorderColor);
+    border: solid 25px var(--fmcBorderColor);
+}
+
+form#AeroQuiz {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    
+
     background: var(--defaultBackgroundColor);
     background: var(--gradientBackground);
 
     border-radius: 25px;
-
-    color : var(--fontColor1);
+    color: var(--fontColor1);
 }
 
 fieldset#questions {
@@ -49,27 +58,87 @@ fieldset#questions {
     border: 0;
 }
 
-fieldset {
+fieldset.qFieldset {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    height: 50%;
+    margin: 2%;
 }
 
-label{
-    background : var(--gradientMiddleColor);   
+label {
+    background: var(--gradientMiddleColor);
     border-radius: 5px;
     padding: 1%;
     margin: 1%;
-    width: max-content;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
-input[type="radio"]:checked+label{
-    background : var(--checkedColor);
-    color : var(--fontColor2)
-  }
+input[type="radio"]:checked+label {
+    background: var(--normalColor);
+    color: var(--fontColor2);
+    border-color: var(--checkedColorBorder);
+}
+
+label:hover {
+    background: var(--hoverColor);
+    color: var(--fontColor2);
+    border: solid 2px;
+    border-color: var(--checkedColorBorder);
+}
 
 input[type="radio"] {
-    display: none;
+    opacity:0;
+}
+
+input[type="submit"] {
+    color: var(--fontColor1);
+    border: solid 2px;
+    border-radius: 25px;
+    border-color: var(--AirbusSurroundColor);
+    background-color: var(--normalColor);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--hoverColor);
+    color: var(--fontColor3);
+}
+
+@media only screen and (min-width: 768px) {
+
+    fieldset.qFieldset{
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+
+    label{
+        width: 40%;
+    }
+    
+}
+
+@media only screen and (min-width: 1366px) {
+
+    form{
+        width: 100%;
+    }
+
+    fieldset.qFieldset{
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+
+    label{
+        width: 40%;
+    }
+    fieldset#questions {
+        width: 100%;
+    }
+    
 }
