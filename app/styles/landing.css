@@ -16,10 +16,18 @@
     src: url("../assets/fonts/PixelifySans-Regular.ttf");
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background: var(--defaultBackgorundColor);
+    height: 100% ;
+    background: var(--defaultBackgorundColor);/*for non support browsers*/
     background: var(--gradientColor);
     font-family: "PixelifySans";
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main{

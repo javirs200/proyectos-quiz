@@ -20,21 +20,23 @@ function generateQuiz(form) {
             input.setAttribute("name", questions[i][0]);
             input.setAttribute("id", a);
             input.setAttribute("value", index);
-            qFieldset.appendChild(label);
             qFieldset.appendChild(input);
+            qFieldset.appendChild(label);
             index++;
         }
 
         fquestions.appendChild(qFieldset);
     }
 
-    form.appendChild(fquestions);
+    
 
     let button = document.createElement("input");
 
-    button.setAttribute("type", "submit")
+    button.setAttribute("type", "submit");
 
-    form.appendChild(button)
+    fquestions.appendChild(button);
+
+    form.appendChild(fquestions);
 }
 
 function validateAnswers(event){

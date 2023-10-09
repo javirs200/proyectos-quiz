@@ -1,32 +1,55 @@
+:root {
+    --defaultBackgroundColor: rgb(0, 22, 3);
+    --gradientStartColor: rgba(0, 22, 3, 1);
+    --gradientMiddleColor: rgba(1, 88, 23, 1);
+    --gradientEndColor: rgba(0, 96, 16, 1);
+    --gradientBackground: radial-gradient(circle,
+                            var(--gradientStartColor) 0%,
+                            var(--gradientStartColor) 81%,
+                            var(--gradientMiddleColor) 93%,
+                            var(--gradientEndColor) 100%);
+
+    --AirbusSurroundColor: #6399ae;
+
+    --fontColor1 : lightgreen;
+    --fontColor2 : rgb(59, 230, 59);
+
+    --checkedColor: rgb(0, 63, 16);
+}
+
 body {
-    background-color: ghostwhite;
+    background-color: var(--AirbusSurroundColor);
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-h1{
-    margin-bottom: 0;
-}
-
-fieldset#questions{
+form#AeroQuiz{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    
+    background: var(--defaultBackgroundColor);
+    background: var(--gradientBackground);
+
+    border-radius: 25px;
+
+    color : var(--fontColor1);
 }
 
-fieldset{
+fieldset#questions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+    border: 0;
+}
+
+fieldset {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,6 +57,19 @@ fieldset{
     flex-wrap: wrap;
 }
 
-input[type="radio"]{
+label{
+    background : var(--gradientMiddleColor);   
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+    width: max-content;
+}
+
+input[type="radio"]:checked+label{
+    background : var(--checkedColor);
+    color : var(--fontColor2)
+  }
+
+input[type="radio"] {
     display: none;
 }
