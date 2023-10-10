@@ -47,25 +47,50 @@ function generateQuiz(form) {
 
 function validateAnswers(event) {
     let aciertos = 0;
-    let indicefallos = [];
+    let indiceFallos = [];
+    let indiceAciertos = [];
     for (let index = 0; index < questions.length; index++) {
         const element = questions[index];
         let val = event.target[element[0]].value;
         if (val == correctAnswers[index]){
             aciertos++;
+            indiceAciertos.push(index);
         }else{
-            indicefallos.push(index);
+            indiceFallos.push(index);
         }
     }
-    console.log("//------------//");
+    /*console.log("//------------//");
     console.log("aciertos -> ", aciertos);
-    console.log("//-------------//");
+    console.log("//-------------//");*/
 
-    alert(`Has conseguido ${aciertos} aciertos \nEnhorabuena!!!`)
+    let msj = `Has conseguido ${aciertos} aciertos \nEnhorabuena!!!`
 
-    
-    for (const f of indicefallos) {
-        preguntas[f].style.borderColor = "red";
+    //alert(msj)
+
+    //mostrar numero de aciertos
+
+    let h2 = document.querySelector("h2#puntos")
+    if(h2 == null){
+        h2 = document.createElement("h2");
+        h2.setAttribute("id","puntos")
+        document.querySelector("form").appendChild(h2);
+    }
+    h2.innerHTML = msj;
+
+    //señalar aciertos / errores en DOM
+
+    let preguntas = document.querySelectorAll("fieldset.qFieldset")
+
+    for (let i = 0; i < preguntas.length; i++) {
+        preguntas[i].style.borderColor = "var(--gradientMiddleColor)";
+    }
+
+    for (const f of indiceFallos) {
+        preguntas[f].style.borderColor = "var(--colorFallo)";
+    }
+
+    for (const f of indiceAciertos) {
+        preguntas[f].style.borderColor = "var(--colorAcierto)";
     }
 }
 
