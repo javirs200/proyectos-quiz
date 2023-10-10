@@ -63,10 +63,7 @@ function validateAnswers(event) {
 
     alert(`Has conseguido ${aciertos} aciertos \nEnhorabuena!!!`)
 
-    //señalar errores en DOM
-
-    let preguntas = document.querySelectorAll("fieldset.qFieldset")
-
+    
     for (const f of indicefallos) {
         preguntas[f].style.borderColor = "red";
     }

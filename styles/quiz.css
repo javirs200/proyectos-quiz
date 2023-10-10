@@ -84,7 +84,7 @@ label {
     background: var(--gradientMiddleColor);
     
     width: 80%;
-    height: 30px;
+    height: fit-content;
 
     margin: 5px;
     padding-bottom: 10px;
