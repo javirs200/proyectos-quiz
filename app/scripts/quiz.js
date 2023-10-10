@@ -9,7 +9,7 @@ function generateQuiz(form) {
         let qFieldset = document.createElement("fieldset");
         qFieldset.setAttribute("class", "qFieldset");
         let qlegend = document.createElement("legend");
-        qlegend.innerHTML = questions[i][1];
+        qlegend.innerHTML = "<h3>"+questions[i][1]+"</h3>";
         qFieldset.appendChild(qlegend);
         let index = 0;
         for (const a of answers[i]) {
@@ -37,6 +37,8 @@ function generateQuiz(form) {
     let button = document.createElement("input");
 
     button.setAttribute("type", "submit");
+        
+    button.setAttribute("value", "Validar");
 
     fquestions.appendChild(button);
 
