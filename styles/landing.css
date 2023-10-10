@@ -30,6 +30,10 @@ body {
     align-items: center;
 }
 
+h1,h2,h3{
+    align-content: center;
+}
+
 main{
     display: flex;
     flex-direction: column;
