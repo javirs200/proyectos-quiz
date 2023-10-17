@@ -1,5 +1,24 @@
 import { questions, answers, correctAnswers } from "./questions.js"
 
+
+function validateOne(event) {
+    
+    let parentFieldset = event.target.parentElement
+
+    let input = event.target.previousSibling;
+
+    let id = input.name.split('Q')[1];
+
+    let v = input.value;
+
+    if(v == correctAnswers[id-1]){
+        parentFieldset.style.borderColor = "var(--colorAcierto)"
+    }else{
+        parentFieldset.style.borderColor = "var(--colorFallo)"
+    }
+
+}
+
 function generateQuiz(form) {
 
     let fquestions = document.createElement("fieldset")
@@ -25,14 +44,13 @@ function generateQuiz(form) {
                 input.setAttribute("required", "true");
             }
             qFieldset.appendChild(input);
+            label.addEventListener("click",validateOne)
             qFieldset.appendChild(label);
             index++;
         }
 
         fquestions.appendChild(qFieldset);
     }
-
-
 
     let button = document.createElement("input");
 
@@ -47,25 +65,19 @@ function generateQuiz(form) {
 
 function validateAnswers(event) {
     let aciertos = 0;
-    let indiceFallos = [];
-    let indiceAciertos = [];
+    let preguntas = document.querySelectorAll("fieldset.qFieldset")
     for (let index = 0; index < questions.length; index++) {
         const element = questions[index];
         let val = event.target[element[0]].value;
         if (val == correctAnswers[index]){
             aciertos++;
-            indiceAciertos.push(index);
+            preguntas[index].style.borderColor = "var(--colorAcierto)";
         }else{
-            indiceFallos.push(index);
+            preguntas[index].style.borderColor = "var(--colorFallo)";
         }
     }
-    /*console.log("//------------//");
-    console.log("aciertos -> ", aciertos);
-    console.log("//-------------//");*/
-
+    
     let msj = `Has conseguido ${aciertos} aciertos \nEnhorabuena!!!`
-
-    //alert(msj)
 
     //mostrar numero de aciertos
 
@@ -76,22 +88,8 @@ function validateAnswers(event) {
         document.querySelector("form").appendChild(h2);
     }
     h2.innerHTML = msj;
-
-    //señalar aciertos / errores en DOM
-
-    let preguntas = document.querySelectorAll("fieldset.qFieldset")
-
-    for (let i = 0; i < preguntas.length; i++) {
-        preguntas[i].style.borderColor = "var(--gradientMiddleColor)";
-    }
-
-    for (const f of indiceFallos) {
-        preguntas[f].style.borderColor = "var(--colorFallo)";
-    }
-
-    for (const f of indiceAciertos) {
-        preguntas[f].style.borderColor = "var(--colorAcierto)";
-    }
+    
+    h2.scrollIntoView();
 }
 
 
