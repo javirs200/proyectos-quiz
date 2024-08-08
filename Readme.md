@@ -1,6 +1,6 @@
 # proyecto quiz
 
-quiz a cerca de conocimentos aeronauticos basicos
+quiz acerca de conocimentos aeronauticos basicos
 
 vvv link aqui vvv
 
